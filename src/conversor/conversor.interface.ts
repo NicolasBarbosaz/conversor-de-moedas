@@ -1,11 +1,7 @@
 export interface Conversor {
-
-   id : number; 
-   amount : number;
-   fromCurrency : string;
-   usdValue : number;
-   eurValue : number;
-
-
-
+  id: number;
+  amount: number;
+  fromCurrency: string;
+  usdValue: number;
+  eurValue: number;
 }
