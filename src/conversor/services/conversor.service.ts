@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Conversor } from './conversor.interface';
-
+import { Conversor } from '../conversor.interface';
 @Injectable()
 export class ConversorService {
   private conversoes: Conversor[] = []; // Array para guardar as conversoes
