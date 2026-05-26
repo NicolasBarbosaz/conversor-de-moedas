@@ -1,7 +1,4 @@
-
-
-export class createConversorDto{
-
-    amount!: number;
-    fromCurrency!: string;
+export class createConversorDto {
+  amount!: number;
+  fromCurrency!: string;
 }
