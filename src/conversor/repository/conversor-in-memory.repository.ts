@@ -27,7 +27,7 @@ export class InMemoryConversorRepository implements ConversorRepository {
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await
-  async findByid(id: number): Promise<ConversorEntity | null> {
+  async findById(id: number): Promise<ConversorEntity | null> {
     return this.conversions.find((c) => c.id === id) ?? null;
   }
 

@@ -16,7 +16,7 @@ import { DeleteConversorUseCase } from '../use-cases/delete-conversor';
 import { createConversorDto } from '../dto/create-conversor.dto';
 import { UpdateConversorDto } from '../dto/update-conversor.dto';
 
-@Controller('conversions')
+@Controller('conversor')
 export class ConversorController {
   constructor(
     private readonly createConversorUseCase: CreateConversorUseCase,

@@ -15,7 +15,7 @@ export class UpdateConversorUseCase {
     id: number,
     data: UpdateConversorDto,
   ): Promise<ConversorEntity> {
-    const existingConversion = await this.conversorRepository.findByid(id);
+    const existingConversion = await this.conversorRepository.findById(id);
 
     if (!existingConversion) {
       throw new NotFoundException(`Conversion with ID ${id} not found`);

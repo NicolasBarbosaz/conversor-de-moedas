@@ -6,7 +6,7 @@ export class DeleteConversorUseCase {
   constructor(private readonly conversorRepository: ConversorRepository) {}
 
   async execute(id: number): Promise<void> {
-    const existingConversion = await this.conversorRepository.findByid(id);
+    const existingConversion = await this.conversorRepository.findById(id);
 
     if (!existingConversion) {
       throw new NotFoundException(`Conversion with ID ${id} not found`);

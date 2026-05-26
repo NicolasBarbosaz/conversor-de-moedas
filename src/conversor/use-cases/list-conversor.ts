@@ -11,6 +11,6 @@ export class ListConversorUseCase {
   }
 
   async findById(id: number): Promise<ConversorEntity | null> {
-    return this.conversorRepository.findByid(id);
+    return this.conversorRepository.findById(id);
   }
 }

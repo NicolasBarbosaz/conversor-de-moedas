@@ -3,6 +3,12 @@ import { ConversorEntity } from '../entities/conversor.entity';
 import { ConversorRepository } from '../repository/conversor.repository';
 import { createConversorDto } from '../dto/create-conversor.dto';
 
+
+
+
+
+
+
 @Injectable()
 export class CreateConversorUseCase {
   constructor(private readonly conversorRepository: ConversorRepository) {}
