@@ -6,10 +6,13 @@ import { CreateConversorUseCase } from '../use-cases/createConversor';
 import { ListConversorUseCase } from '../use-cases/list-conversor';
 import { UpdateConversorUseCase } from '../use-cases/update-conversor';
 import { DeleteConversorUseCase } from '../use-cases/delete-conversor';
+import { ExchangeRateService } from '../service/exchange-rate.service';
 
 @Module({
   controllers: [ConversorController],
   providers: [
+    ExchangeRateService,
+
     {
       provide: ConversorRepository,
       useClass: InMemoryConversorRepository,
