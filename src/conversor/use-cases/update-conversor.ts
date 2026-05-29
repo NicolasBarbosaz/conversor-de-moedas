@@ -61,6 +61,6 @@ export class UpdateConversorUseCase {
       Number(eurValue.toFixed(2)),
     );
 
-    return this.conversorRepository.save(updatedConversion);
+    return this.conversorRepository.update(id, updatedConversion);
   }
 }
