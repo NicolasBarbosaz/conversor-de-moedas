@@ -1,98 +1,246 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 💱 API Conversor de Moedas
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API desenvolvida com NestJS e TypeScript para realizar conversões monetárias para Dólar Americano (USD) e Euro (EUR), seguindo os princípios de Clean Architecture, SOLID e Programação Orientada a Objetos (POO).
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O sistema permite criar, listar, atualizar e remover conversões de moedas, além de armazenar o histórico das conversões realizadas.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# 🚀 Tecnologias Utilizadas
 
-## Project setup
+* [NestJS](https://nestjs.com?utm_source=chatgpt.com)
+* [TypeScript](https://www.typescriptlang.org?utm_source=chatgpt.com)
+* [Node.js](https://nodejs.org?utm_source=chatgpt.com)
+* [Prisma ORM](https://www.prisma.io?utm_source=chatgpt.com)
+* [PostgreSQL](https://www.postgresql.org?utm_source=chatgpt.com)
+
+---
+
+# 📁 Estrutura do Projeto
 
 ```bash
-$ npm install
+src/
+├── conversor/
+│   ├── controllers/
+│   │   └── conversions.controller.ts
+│   │
+│   ├── dto/
+│   │   ├── create-conversor.dto.ts
+│   │   └── update-conversor.dto.ts
+│   │
+│   ├── entities/
+│   │   └── conversor.entity.ts
+│   │
+│   ├── modules/
+│   │   ├── conversor.modules.ts
+│   │   └── prisma.module.ts
+│   │
+│   ├── repository/
+│   │   ├── conversor.repository.ts
+│   │   └── prisma.repository.ts
+│   │
+│   ├── service/
+│   │   ├── exchange-rate.service.ts
+│   │   └── prisma.service.ts
+│   │
+│   └── use-cases/
+│       ├── createConversor.ts
+│       ├── delete-conversor.ts
+│       ├── list-conversor.ts
+│       └── update-conversor.ts
+│
+├── app.module.ts
+└── main.ts
+
+prisma/
+├── migrations/
+└── schema.prisma
 ```
 
-## Compile and run the project
+---
+
+# ⚙️ Funcionalidades
+
+* Criar conversão de moedas
+* Listar conversões realizadas
+* Buscar conversão por ID
+* Atualizar conversão
+* Remover conversão
+* Persistência em banco de dados
+* Integração com taxa de câmbio
+* Tratamento de exceções
+* Validação de dados
+
+---
+
+# 📌 Regras de Negócio
+
+* O valor da conversão deve ser maior que zero
+* A moeda de origem deve ser válida
+* Toda conversão gera valores em:
+
+  * USD
+  * EUR
+* As taxas de câmbio ficam desacopladas da regra de negócio
+
+---
+
+# 🔧 Instalação
+
+## 1. Clone o repositório
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/seu-usuario/seu-repositorio.git
 ```
 
-## Run tests
+## 2. Acesse a pasta do projeto
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+cd seu-repositorio
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## 3. Instale as dependências
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## Resources
+# 🔐 Variáveis de Ambiente
 
-Check out a few resources that may come in handy when working with NestJS:
+Crie um arquivo `.env` na raiz do projeto para rodar localmente:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/conversor?schema=public"
+PORT=3000
+```
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# 🗄️ Executando as Migrations
 
-## Stay in touch
+```bash
+npx prisma migrate dev
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+# ▶️ Executando o Projeto
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Ambiente de desenvolvimento
+
+```bash
+npm run start:dev
+```
+
+---
+
+# 📡 Rotas da API
+
+## Criar Conversão
+
+### `POST /conversions`
+
+### Body
+
+```json
+{
+  "amount": 100,
+  "fromCurrency": "BRL"
+}
+```
+
+### Resposta
+
+```json
+{
+  "id": "1",
+  "amount": 100,
+  "fromCurrency": "BRL",
+  "usd": 19.77,
+  "eur": 18.12
+}
+```
+
+---
+
+## Listar Conversões
+
+### `GET /conversions`
+
+### Resposta
+
+```json
+[
+  {
+    "id": "1",
+    "amount": 100,
+    "fromCurrency": "BRL",
+    "usd": 19.77,
+    "eur": 18.12
+  }
+]
+```
+
+---
+
+## Buscar Conversão por ID
+
+### `GET /conversions/:id`
+
+---
+
+## Atualizar Conversão
+
+### `PUT /conversions/:id`
+
+### Body
+
+```json
+{
+  "amount": 200
+}
+```
+
+---
+
+## Remover Conversão
+
+### `DELETE /conversions/:id`
+
+---
+
+# ✅ Validações
+
+A API possui validações utilizando `class-validator`:
+
+* Valor obrigatório
+* Valor maior que zero
+* Moeda válida
+* Tratamento de erros HTTP
+
+---
+
+# 🧱 Arquitetura
+
+O projeto segue os princípios de:
+
+* Clean Architecture
+* SOLID
+* Separação de responsabilidades
+* Inversão de dependência
+* Organização modular do NestJS
+
+---
+
+# 👨‍💻 Autores
+
+Projeto desenvolvido para a disciplina de Backend / Arquitetura de Software.
+
+Alunos: Pablo Jorge dos Santos / Nícolas César Barbosa Correia
+
+---
+
+# 📄 Licença
+
+Este projeto é destinado para fins acadêmicos.
