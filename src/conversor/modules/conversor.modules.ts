@@ -9,7 +9,6 @@ import { ExchangeRateService } from '../service/exchange-rate.service';
 import { PrismaRepository } from '../repository/prisma.repository';
 import { PrismaService } from '../service/prisma.service';
 
-
 @Module({
   controllers: [ConversorController],
   providers: [
