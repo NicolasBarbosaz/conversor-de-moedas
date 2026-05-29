@@ -5,7 +5,7 @@ export class ExchangeRateService {
   getRates() {
     const hour = new Date().getHours();
 
-    // manhã
+    
     if (hour >= 6 && hour < 12) {
       return {
         USD: 0.18,
@@ -13,7 +13,7 @@ export class ExchangeRateService {
       };
     }
 
-    // tarde
+   
     if (hour >= 12 && hour < 18) {
       return {
         USD: 0.19,
@@ -21,7 +21,7 @@ export class ExchangeRateService {
       };
     }
 
-    // noite
+    
     return {
       USD: 0.21,
       EUR: 0.18,
